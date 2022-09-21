@@ -34,6 +34,47 @@ function twoNumberSum(array, targetSum) {
   return []
 }
 
+//using sort and pointers 
+function twoNumberSum(array, targetSum) {
+  // Write your code here.
+  //sort the array 
+  array.sort((a,b) => (a-b))
+  //initialize left and right pointers 
+  let l =0;
+  let r = array.length - 1;
+  // compare elements at left and right indices 
+  while(l < r) {
+    const currentSum = array[l] + array[r]
+    if(currentSum < targetSum) {
+    l++
+    }else if(currentSum > targetSum) {
+      r--
+    }else if(currentSum === targetSum) {
+      return [array[l], array[r]]
+    }
+  }
+  return []
+}
+
+// using exitence map 
+function twoNumberSum(array, targetSum) {
+  // Write your code here.
+  if(!array.length) {
+    return
+  }
+  const existenceMap = {}
+  for(let i=0; i<array.length; i++) {
+    const val = targetSum - array[i]
+    console.log('val ',val)
+    if(existenceMap.hasOwnProperty(array[i])) {
+      return [array[i], val]
+    }else {
+      existenceMap[val] = true
+    }
+  }
+  return []
+}
+
 function twoNumberSum(array, targetSum) {
   // Write your code here.
   if (!array.length) {
