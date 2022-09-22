@@ -17,7 +17,6 @@
 //   output = [-1, 11]
 
 //sol
-
 //brute force method 
 function twoNumberSum(array, targetSum) {
   if(!array.length) {
@@ -55,6 +54,9 @@ function twoNumberSum(array, targetSum) {
   }
   return []
 }
+
+// Hint : x + y = target
+// y = target - x
 
 // using exitence map 
 function twoNumberSum(array, targetSum) {
